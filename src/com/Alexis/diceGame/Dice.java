@@ -4,5 +4,6 @@ public class Dice {
     int diceThrow;
     public Dice(int diceThrow) {
         this.diceThrow = diceThrow;
+
     }
 }

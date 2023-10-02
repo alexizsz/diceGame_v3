@@ -18,7 +18,7 @@ public class Main {
         * DICE:
             *  Ask for amount of dices - DONE
             *  Throw dices - DONE
-            *  Show result -
+            *  Show result - DONE
         *  Announce winner! - */
 
         Scanner userInput = new Scanner(System.in);
@@ -33,21 +33,37 @@ public class Main {
         Players playerTwo = new Players(newPlayer, 2);
         System.out.println("Welcome: " + playerTwo.getPlayer() + "!");
         int dices = diceAmount();
-        rollDice(playerOne, dices);
+        int playerSumOne = rollDice(playerOne, dices);
         System.out.println("Now for " + playerTwo.getPlayer() + " turn");
-        rollDice(playerTwo,dices);
+        int playerSumTwo = rollDice(playerTwo,dices);
+        winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
     }
     public static int diceAmount(){
         System.out.println("How many dices would you like to throw?");
         Scanner userInput = new Scanner(System.in);
         return userInput.nextInt();
     }
-    public static void rollDice(Players player, int rollAmount){
+    public static int rollDice(Players player, int rollAmount){
+        int playerSum = 0;
         Random random = new Random();
         for (int i = 0; i <rollAmount; i++) {
             int newDice = random.nextInt(1,7);
             System.out.println(player.getPlayer() + " rolled: " + newDice);
+            playerSum += newDice;
+        }
+        System.out.println(player.getPlayer() + " rolled a total of: " + playerSum);
+        return playerSum;
+
+    }
+    public static void winnerWinnerChickenDinner(Players playerOne, Players playerTwo, int sumOne, int sumTwo){
+        if (sumOne > sumTwo){
+            System.out.println(playerOne.getPlayer() + " Wins with a total of: " + sumOne + "!!!");
+        }
+        else if (sumTwo > sumOne) {
+            System.out.println(playerTwo.getPlayer() + " Wins with a total of: " + sumTwo + "!!");
+        }
+        else {
+            System.out.println("It´s a tie!!!! Both players had the same total of: " + sumOne);
         }
     }
-    
 }
