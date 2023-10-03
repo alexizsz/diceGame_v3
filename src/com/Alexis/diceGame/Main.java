@@ -24,32 +24,37 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
 
         System.out.println("Welcome do Dice Game v.3!");
-        boolean startStop = true;
         do {
 
-                    System.out.println("Please choose a name for Player #1: ");
-
+            System.out.println("Please choose a name for Player #1: ");
             String newPlayer = userInput.nextLine();
             Players playerOne = new Players(newPlayer, 1);
             System.out.println("Welcome: " + playerOne.getPlayer() + "!");
+
             System.out.println("Please choose a name for Player #2: ");
             newPlayer = userInput.nextLine();
             Players playerTwo = new Players(newPlayer, 2);
             System.out.println("Welcome: " + playerTwo.getPlayer() + "!");
+
             int dices = diceAmount();
             int playerSumOne = rollDice(playerOne, dices);
             System.out.println("Now for " + playerTwo.getPlayer() + " turn");
             int playerSumTwo = rollDice(playerTwo, dices);
+
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
-            System.out.println("Would you like to play again?\n yes or no:");
-            String quit = userInput.nextLine();
-            if (quit.equals("no")) {
-                System.out.println("Thanks for playing!");
-                System.exit(0);
-            } else if (quit.equals("yes")) {
-            } else {
-                System.out.println("YES or NO");
-            }
+            do {
+                System.out.println("\nWould you like to play again?\n yes or no:");
+                String quit = userInput.nextLine();
+                if (quit.equals("no")) {
+                    System.out.println("\t\tThanks for playing!");
+                    System.exit(0);
+                } else if (quit.equals("yes")) {
+                    break;
+                } else {
+                    System.out.println("Please write yes or no!");
+                }
+            }while (true);
+
         }while (true);
         }
     public static int diceAmount(){
