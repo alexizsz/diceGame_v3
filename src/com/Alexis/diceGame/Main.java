@@ -42,8 +42,9 @@ public class Main {
             int playerSumTwo = rollDice(playerTwo, dices);
 
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
+            System.out.println("\nWould you like to play again?\n yes or no:");
             do {
-                System.out.println("\nWould you like to play again?\n yes or no:");
+
                 String quit = userInput.nextLine();
                 if (quit.equals("no")) {
                     System.out.println("\t\tThanks for playing!");
