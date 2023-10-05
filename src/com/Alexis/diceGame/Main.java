@@ -19,7 +19,9 @@ public class Main {
             *  Ask for amount of dices - DONE
             *  Throw dices - DONE
             *  Show result - DONE
-        *  Announce winner! - */
+        *  Announce winner! - DONE
+        * Introduce try/catch for int - DONE & Strings - DONE
+        * Create 3 tests, example for: Dice range 1-6*/
 
         Scanner userInput = new Scanner(System.in);
 
@@ -44,7 +46,6 @@ public class Main {
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
             System.out.println("\nWould you like to play again?\n yes or no:");
             do {
-
                 String quit = userInput.nextLine();
                 if (quit.equals("no")) {
                     System.out.println("\t\tThanks for playing!");
@@ -55,13 +56,18 @@ public class Main {
                     System.out.println("Please write yes or no!");
                 }
             }while (true);
-
         }while (true);
         }
+
     public static int diceAmount(){
         System.out.println("How many dices would you like to throw?");
-        Scanner userInput = new Scanner(System.in);
-        return userInput.nextInt();
+        try{
+            Scanner userInput = new Scanner(System.in);
+            return userInput.nextInt();
+        }catch (Exception error){
+            System.out.println("\nYou need to put in a number!\n");
+        }
+        return diceAmount();
     }
     public static int rollDice(Players player, int rollAmount){
         int playerSum = 0;
