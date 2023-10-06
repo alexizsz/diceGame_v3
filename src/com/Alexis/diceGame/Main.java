@@ -14,28 +14,28 @@ public class Main {
         *  Initialize Git rep - DONE
         *  Introduction to game - DONE
         * PLAYERS
-            *  Ask for names - DONE
-            * Save players - DONE
+            * Ask for names - DONE
+            * Save playersnames - DONE
         * DICE:
             *  Ask for amount of dices - DONE
             *  Throw dices - DONE
             *  Show result - DONE
         *  Announce winner! - DONE
         * Introduce try/catch for int - DONE & Strings - DONE
-        * Create 3 tests, example for: Dice range 1-6*/
+        * Create 3 tests, example for: Dice range 1-6* - DONE, toLower test - DONE.*/
 
-        Scanner userInput = new Scanner(System.in);
 
         System.out.println("Welcome do Dice Game v.3!");
         do {
 
+
             System.out.println("Please choose a name for Player #1: ");
-            String newPlayer = userInput.nextLine();
+            String newPlayer = Scanning.scanLine();
             Players playerOne = new Players(newPlayer, 1);
             System.out.println("Welcome: " + playerOne.getPlayer() + "!");
 
             System.out.println("Please choose a name for Player #2: ");
-            newPlayer = userInput.nextLine();
+            newPlayer = Scanning.scanLine();
             Players playerTwo = new Players(newPlayer, 2);
             System.out.println("Welcome: " + playerTwo.getPlayer() + "!");
 
@@ -47,7 +47,7 @@ public class Main {
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
             System.out.println("\nWould you like to play again?\n\t\t yes or no:");
             do {
-                String quit = userInput.nextLine().toLowerCase();
+                String quit = Scanning.scanLine().toLowerCase();
                 if (quit.equals("no")) {
                     System.out.println("\t\tThanks for playing!");
                     System.exit(0);
@@ -59,12 +59,10 @@ public class Main {
             }while (true);
         }while (true);
         }
-
     public static int diceAmount(){
         System.out.println("How many dices would you like to throw?");
         try{
-            Scanner userInput = new Scanner(System.in);
-            return userInput.nextInt();
+            return Scanning.scanInt();
         }catch (Exception error){
             System.out.println("\nYou need to put in a number!\n");
         }
