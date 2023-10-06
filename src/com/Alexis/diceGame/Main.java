@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         /*Dice game
         *Restart of whole project, first one went to deep and felt easier to start over.
@@ -44,16 +45,16 @@ public class Main {
             int playerSumTwo = rollDice(playerTwo, dices);
 
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
-            System.out.println("\nWould you like to play again?\n yes or no:");
+            System.out.println("\nWould you like to play again?\n\t\t yes or no:");
             do {
-                String quit = userInput.nextLine();
+                String quit = userInput.nextLine().toLowerCase();
                 if (quit.equals("no")) {
                     System.out.println("\t\tThanks for playing!");
                     System.exit(0);
                 } else if (quit.equals("yes")) {
                     break;
                 } else {
-                    System.out.println("Please write yes or no!");
+                    System.out.println("\t\tPlease write yes or no!");
                 }
             }while (true);
         }while (true);
