@@ -26,16 +26,16 @@ public class Main {
 
 
         System.out.println("Welcome do Dice Game v.3!");
+        Scanner userInput = new Scanner(System.in);
         do {
 
-
             System.out.println("Please choose a name for Player #1: ");
-            String newPlayer = Scanning.scanLine();
+            String newPlayer = userInput.nextLine();
             Players playerOne = new Players(newPlayer, 1);
             System.out.println("Welcome: " + playerOne.getPlayer() + "!");
 
             System.out.println("Please choose a name for Player #2: ");
-            newPlayer = Scanning.scanLine();
+            newPlayer = userInput.nextLine();
             Players playerTwo = new Players(newPlayer, 2);
             System.out.println("Welcome: " + playerTwo.getPlayer() + "!");
 
@@ -47,7 +47,7 @@ public class Main {
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
             System.out.println("\nWould you like to play again?\n\t\t yes or no:");
             do {
-                String quit = Scanning.scanLine().toLowerCase();
+                String quit = userInput.nextLine().toLowerCase();
                 if (quit.equals("no")) {
                     System.out.println("\t\tThanks for playing!");
                     System.exit(0);
@@ -62,7 +62,8 @@ public class Main {
     public static int diceAmount(){
         System.out.println("How many dices would you like to throw?");
         try{
-            return Scanning.scanInt();
+            Scanner userInput = new Scanner(System.in);
+            return userInput.nextInt();
         }catch (Exception error){
             System.out.println("\nYou need to put in a number!\n");
         }
