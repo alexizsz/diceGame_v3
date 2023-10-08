@@ -15,17 +15,17 @@ public class Main {
         *  Introduction to game - DONE
         * PLAYERS
             * Ask for names - DONE
-            * Save playersnames - DONE
+            * Save players names - DONE
         * DICE:
             *  Ask for amount of dices - DONE
             *  Throw dices - DONE
             *  Show result - DONE
         *  Announce winner! - DONE
         * Introduce try/catch for int - DONE & Strings - DONE
-        * Create 3 tests, example for: Dice range 1-6* - DONE, toLower test - DONE.*/
+        * Created 2 tests - DONE.*/
 
 
-        System.out.println("Welcome do Dice Game v.3!");
+        System.out.println("Welcome do Dice Game!");
         Scanner userInput = new Scanner(System.in);
         do {
             System.out.println("Please choose a name for Player #1: ");
