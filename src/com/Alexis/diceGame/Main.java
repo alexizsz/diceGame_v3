@@ -28,7 +28,6 @@ public class Main {
         System.out.println("Welcome do Dice Game v.3!");
         Scanner userInput = new Scanner(System.in);
         do {
-
             System.out.println("Please choose a name for Player #1: ");
             String newPlayer = userInput.nextLine();
             Players playerOne = new Players(newPlayer, 1);
@@ -41,10 +40,11 @@ public class Main {
 
             int dices = diceAmount();
             int playerSumOne = rollDice(playerOne, dices);
-            System.out.println("Now for " + playerTwo.getPlayer() + " turn");
+            System.out.println("And " + playerTwo.getPlayer() + " rolls..");
             int playerSumTwo = rollDice(playerTwo, dices);
 
             winnerWinnerChickenDinner(playerOne, playerTwo, playerSumOne, playerSumTwo);
+
             System.out.println("\nWould you like to play again?\n\t\t yes or no:");
             do {
                 String quit = userInput.nextLine().toLowerCase();
@@ -79,7 +79,6 @@ public class Main {
         }
         System.out.println(player.getPlayer() + " rolled a total of: " + playerSum);
         return playerSum;
-
     }
     public static void winnerWinnerChickenDinner(Players playerOne, Players playerTwo, int sumOne, int sumTwo){
         if (sumOne > sumTwo){
